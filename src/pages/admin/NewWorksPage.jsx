@@ -1,7 +1,5 @@
-import Sidebar from "../../components/menus/Sidebar";
-
-const NewWorksPage = () => {
-  return <Sidebar />;
+const NewWorks = () => {
+  return "";
 };
 
-export default NewWorksPage;
+export default NewWorks;
