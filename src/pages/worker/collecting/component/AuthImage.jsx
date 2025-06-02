@@ -11,7 +11,7 @@ const AuthImage = ({ src, alt, className }) => {
         const url = URL.createObjectURL(response.data);
         setImageSrc(url);
       })
-      .catch((error) => console.log("ERROR LOADING IMAGE: ", error));
+      .catch((error) => ("ERROR LOADING IMAGE: ", error));
   }, [src]);
 
   return imageSrc ? (

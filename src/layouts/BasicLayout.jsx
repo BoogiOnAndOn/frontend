@@ -3,8 +3,8 @@
 import BasicMenu from "../components/menus/BasicMenu";
 
 // 이거 빨간거 왜 생기는거? 작동은 잘 되는데
-const BasicLayout = ({children}) => {
-  console.log(children);
+const BasicLayout = ({ children }) => {
+  children;
 
   return (
     <>

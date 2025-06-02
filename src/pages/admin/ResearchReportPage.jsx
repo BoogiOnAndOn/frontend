@@ -43,7 +43,7 @@ const ResearchReportPage = () => {
       let response;
       if (isNeeded) response = await getNewWorksDetail(reportId, "조사 완료");
       else response = await getCompletedWorksDetail(reportId, "조사");
-      // console.log("------------completedTasksDetail get response: ", response);
+      // ("------------completedTasksDetail get response: ", response);
 
       let formattedDate = "날짜 정보 없음";
 

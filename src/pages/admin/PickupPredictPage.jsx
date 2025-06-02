@@ -91,7 +91,7 @@ const PickupPredictPage = () => {
       try {
         const res = await getPredicted(searchParam);
         if (res.data && res.data.length > 0) {
-          console.log(res);
+          res;
           const mergedData = res.data.reduce((acc, curr) => {
             // 현재 구역이 이미 결과 배열에 있는지 확인
             const existing = acc.find(
@@ -129,7 +129,7 @@ const PickupPredictPage = () => {
           setTrashs(bins);
         }
       } catch (error) {
-        console.log(error);
+        error;
       }
     };
 

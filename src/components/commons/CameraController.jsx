@@ -68,7 +68,7 @@ const CameraController = ({
               key={index}
               className="relative flex-shrink-0 w-24 h-24 cursor-pointer"
               onClick={() => {
-                console.log("큰 사진 모달");
+                ("큰 사진 모달");
               }}
             >
               <img

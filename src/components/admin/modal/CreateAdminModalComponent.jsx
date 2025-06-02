@@ -53,7 +53,7 @@ const CreateAdminModalComponent = ({ isOpen, onClose }) => {
       // 입력된 데이터를 API에 전달
       const res = await createSingleAdmin(id, datas);
 
-      console.log("등록 완료: ", res);
+      "등록 완료: ", res;
       onClose(); // 모달 닫기
     } catch (error) {
       console.error("회원 등록 중 오류 발생:", error);
@@ -91,7 +91,7 @@ const CreateAdminModalComponent = ({ isOpen, onClose }) => {
   const fetchWorkAreas = async () => {
     try {
       const res = await getWorkAreas(id);
-      console.log("=======get work areas response: ", res.data.siList[0]);
+      "=======get work areas response: ", res.data.siList[0];
       setAreas(res.data.guGunMap["부산광역시"]);
       setWorkCity(res.data.siList[0]);
       return res;

@@ -34,9 +34,11 @@ const CollectingMainPage = () => {
         throw new Error("Invalid data format");
       }
 
+      // 수거 대기 상태
       setNeededSpots(
         spots.filter((spot) => spot.status === "ASSIGNMENT_NEEDED")
       );
+      // 수거 경로 등록 상태 필터링
       setAddedSpots(
         spots.filter(
           (spot) =>
@@ -70,10 +72,10 @@ const CollectingMainPage = () => {
   const fetchAddress = async (setAddress, lat, lng) => {
     try {
       const address = await getAddress(lat, lng);
-      console.log(address);
+      address;
       setAddress(address);
     } catch (error) {
-      console.log(error);
+      error;
     }
   };
 
@@ -91,10 +93,9 @@ const CollectingMainPage = () => {
     const locData = await fetchLocation();
 
     if (locData.coords) {
-      console.log("좌표 가져오기 성공: ", locData.coords);
       setMyCoords({ lat: locData.coords[0], lng: locData.coords[1] });
     } else if (locData.error) {
-      console.log("좌표 가져오기 오류: ", locData.error);
+      "좌표 가져오기 오류: ", locData.error;
       return;
     }
   };
@@ -123,14 +124,7 @@ const CollectingMainPage = () => {
     }
 
     try {
-      console.log(
-        "status has been updated at spot id: ",
-        spotId,
-        ", function: ",
-        func
-      );
       const doUpdate = await updateSpots(spotId, func);
-      console.log("update spot response: ", doUpdate);
       fetchData();
     } catch (error) {
       console.error(error);

@@ -307,7 +307,7 @@ const ResearchMainPage = () => {
       formData.append("json", JSON.stringify(main));
 
       postAdd(formData).then((data) => {
-        console.log(data.result);
+        data.result;
         setResult(data.result);
       });
     } catch (error) {

@@ -101,31 +101,32 @@ const ExcelDownloader = ({ data = null, tab = null }) => {
   };
 
   const downloadExcel = () => {
+    // 새 워크북 생성
     const wb = XLSX.utils.book_new();
-
+    // 헤더를 포함한 초기 데이터 배열 생성
     const wsData = [headers];
-
     if (data && data.length > 0) {
       wsData.push(...data);
     }
-
+    // 워크시트 생성
     const ws = XLSX.utils.aoa_to_sheet(wsData);
-
+    // 열 너비 자동 계산 및 적용
     const wscols = headers.map((header, index) => {
       const columnData = data ? data.map((row) => row[index]) : [];
       return { wch: calculateColumnWidth(header, columnData) };
     });
     ws["!cols"] = wscols;
-
+    // 헤더 스타일 적용
     headers.forEach((header, index) => {
       const cellAddress = XLSX.utils.encode_cell({ r: 0, c: index });
+      // 관리자 양식에서 필수가 아닌 컬럼은 스타일 적용 X
       if (tab === "admin" && (index === 3 || index === 4)) {
         ws[cellAddress].s = noColorStyle;
       } else {
         ws[cellAddress].s = headerStyle;
       }
     });
-
+    // 워크북에 워크시트 추가
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
     XLSX.writeFile(
       wb,

@@ -6,7 +6,7 @@ const prefix = `${API_SERVER_HOST}/api/member/my-page/worker`;
 export const getUserInfo = async (workerId) => {
   const res = await jwtAxios.get(`${prefix}/${workerId}`);
 
-  console.log("----------", res);
+  "----------", res;
 
   return res.data;
 };

@@ -54,16 +54,16 @@ const MyPageAdmin = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState(""); // 비밀번호 확인 에러 메시지 상태
   const [successMessage, setSuccessMessage] = useState("");
   // 비밀번호 변경 컨펌
-  const savingPassword = () => console.log("저장중...");
-  const abort = () => console.log("취소됨.");
+  const savingPassword = () => "저장중...";
+  const abort = () => "취소됨.";
   const confirmSave = useConfirm("저장하시겠습니까?", savingPassword, abort);
 
   //개인정보 수정 컨펌
   const updateInfo = () => {
-    console.log("수정중...");
+    ("수정중...");
     handleSubmit();
   };
-  const cancelUpdate = () => console.log("취소됨.");
+  const cancelUpdate = () => "취소됨.";
   const confirmUpdate = useConfirm(
     "수정하시겠습니까?",
     updateInfo,
@@ -138,12 +138,12 @@ const MyPageAdmin = () => {
       contact: adminInfo.contact,
     };
 
-    console.log("업데이트할 데이터:", updatedData); // 데이터가 올바른지 확인
+    "업데이트할 데이터:", updatedData; // 데이터가 올바른지 확인
 
     // 사용자 정보 업데이트 API 호출
     updateAdminInfo(id, adminInfo)
       .then((response) => {
-        console.log("사용자 정보 업데이트 성공:", response);
+        "사용자 정보 업데이트 성공:", response;
         setSuccessMessage("사용자 정보가 성공적으로 업데이트되었습니다.");
       })
       .catch((error) => {
