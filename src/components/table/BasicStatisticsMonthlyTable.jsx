@@ -1,7 +1,7 @@
 import React from "react";
 
 const BasicStatisticsMonthlyTable = ({ monthlyData, selectedYear }) => {
-  console.log("monthlyData:", monthlyData); // 데이터가 제대로 전달되고 있는지 확인
+  "monthlyData:", monthlyData; // 데이터가 제대로 전달되고 있는지 확인
 
   // 1월부터 12월까지의 월을 정의하는 배열
   const monthes = [

@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../slices/loginSlice";
 
+// 사용자 인증 및 정보 관련 커스텀 훅
 export const useAuth = () => {
-  const memberInfo = useSelector((state) => state.login);
-
   const dispatch = useDispatch();
 
+  // Redux에서 상태 가져옴
+  const memberInfo = useSelector((state) => state.login);
+  // username 이 있으면 로그인 된 상태로 취급
   const isLoggedIn = !!memberInfo?.username;
 
   const role = memberInfo?.roleNames?.[0] || "Guest";

@@ -44,10 +44,10 @@ const FormSub = ({
     let receivedCoords = [];
 
     if (locData.coords) {
-      // console.log("좌표 가져오기 성공: ", locData.coords);
+      // ("좌표 가져오기 성공: ", locData.coords);
       receivedCoords = locData.coords;
     } else if (locData.error) {
-      // console.log("좌표 가져오기 오류: ", locData.error);
+      // ("좌표 가져오기 오류: ", locData.error);
       return;
     }
 

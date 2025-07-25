@@ -48,19 +48,20 @@ const Pagination = ({
       </button>
 
       {/* 페이지 번호 버튼 */}
-      {pageNumberList.map((page) => (
-        <button
-          key={page}
-          className={`px-3 py-1 rounded-md ${
-            page === currentPage
-              ? "bg-blue-600 text-white"
-              : "text-gray-600 hover:bg-gray-200"
-          }`}
-          onClick={() => onPageChange(page)}
-        >
-          {page}
-        </button>
-      ))}
+      {pageNumberList &&
+        pageNumberList.map((page) => (
+          <button
+            key={page}
+            className={`px-3 py-1 rounded-md ${
+              page === currentPage
+                ? "bg-blue-600 text-white"
+                : "text-gray-600 hover:bg-gray-200"
+            }`}
+            onClick={() => onPageChange(page)}
+          >
+            {page}
+          </button>
+        ))}
 
       {/* 다음 범위로 이동 */}
       <button

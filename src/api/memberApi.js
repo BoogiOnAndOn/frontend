@@ -12,7 +12,5 @@ export const loginPost = async (loginParam) => {
 
   const res = await axios.post(`${host}/login`, form, header);
 
-  console.log("login res: ", res);
-
   return res.data;
 };

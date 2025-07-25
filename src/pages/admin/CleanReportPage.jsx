@@ -59,7 +59,7 @@ const CleanReportPage = () => {
       let response;
       if (isNeeded) response = await getNewWorksDetail(reportId, "청소 완료");
       else response = await getCompletedWorksDetail(reportId, "청소");
-      // console.log("------------newTasksClean get response: ", response);
+      // ("------------newTasksClean get response: ", response);
 
       let formattedDate = "날짜 정보 없음";
 

@@ -32,7 +32,7 @@ const CollectReportPage = () => {
   const fetchCollectDetail = async () => {
     try {
       const response = await getCompletedWorksDetail(reportId, "수거");
-      // console.log("===========response: ", response);
+      // ("===========response: ", response);
 
       let formattedDate = "날짜 정보 없음";
 

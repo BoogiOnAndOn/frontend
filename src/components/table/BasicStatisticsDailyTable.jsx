@@ -7,7 +7,7 @@ const BasicStatisticsDailyTable = ({
 }) => {
   // 데이터가 제대로 전달되는지 확인
   useEffect(() => {
-    console.log("전달된 일별 데이터:", dailyData);
+    "전달된 일별 데이터:", dailyData;
   }, [dailyData]);
 
   // 연도와 월이 전달되지 않았을 경우 기본 값 설정
@@ -45,7 +45,7 @@ const BasicStatisticsDailyTable = ({
   };
 
   // days 배열의 생성 상태를 확인하는 로그
-  console.log("days 배열:", days);
+  "days 배열:", days;
 
   return (
     <table className="w-full text-left border border-gray-300">

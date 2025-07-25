@@ -97,7 +97,7 @@ const PickUpPlaceMainPage = () => {
         setResult(data.result);
       });
     } catch (error) {
-      console.log("error: ", error);
+      "error: ", error;
     }
   };
 
