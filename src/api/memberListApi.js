@@ -5,19 +5,9 @@ const prefix = `${API_SERVER_HOST}/api/admin`;
 
 // 회원 목록 출력
 export const getMemberList = async (searchParam, adminId) => {
-  console.log(
-    "---member-inquiry get api called with: {tabCondition: ",
-    searchParam.tabCondition,
-    ", nameSearch: ",
-    searchParam.nameSearch,
-    "}---"
-  );
-
   const res = await jwtAxios.get(`${prefix}/member-inquiry/${adminId}`, {
     params: searchParam, // 쿼리 파라미터로 전달
   });
-
-  console.log("-----------member-inquiry get api response: ", res);
 
   return res;
 };
@@ -59,7 +49,6 @@ export const createSingleWorker = async (
 export const getWorkAreas = async (superId) => {
   try {
     const res = await jwtAxios.get(`${prefix}/create/admin/${superId}`);
-    console.log("시군구 가져오기 성공: ", res);
     return res;
   } catch (error) {
     console.error("시군구 가져오는 중 에러 발생: ", error);
@@ -71,21 +60,8 @@ export const createSingleAdmin = async (superId, data) => {
   if (!data) {
     return;
   }
-  // const {
-  //   name,
-  //   phone,
-  //   email,
-  //   address,
-  //   addressDetail,
-  //   workCity,
-  //   workPlace,
-  //   department,
-  //   position,
-  //   contact,
-  // } = data;
   try {
     const res = jwtAxios.post(`${prefix}/create/admin/${superId}`, data);
-    console.log("관리자 단일 등록 response: ", res);
   } catch (error) {
     console.error("관리자 생성 중 에러 발생: ", error);
     throw error;
@@ -112,9 +88,6 @@ export const createBulkMember = async (formData, id, target) => {
 
 // 멤버 삭제
 export const deleteMembers = async (ids) => {
-  // ids가 제대로 전달되고 있는지 확인하는 로그
-  console.log("--- 삭제할 id들의 배열값 ", ids);
-
   if (!Array.isArray(ids) || ids.length === 0) {
     console.error("ids 값이 올바르지 않거나 배열이 비어 있습니다.", ids);
     return; // ids 배열이 없거나 비어 있으면 API 호출 중단
@@ -126,9 +99,6 @@ export const deleteMembers = async (ids) => {
       url: `${prefix}/delete/bulk`,
       data: { ids: ids }, // 삭제할 회원의 ID 목록을 전송
     });
-
-    // 성공적으로 삭제 후 반환된 응답 출력
-    console.log("삭제 API 응답:", res);
     return res;
   } catch (error) {
     // 오류 발생 시 출력

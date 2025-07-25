@@ -27,6 +27,7 @@ const DetailedSpot = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isCompleteModalOpen, setIsCompleteModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const getSpotInfoBySpotId = async () => {
     const selectedSpot1 = neededSpots.find((spotInfo) => spotInfo.id === spot);
@@ -111,7 +112,7 @@ const DetailedSpot = ({
   };
 
   const handleAddToRoute = () => {
-    console.log("경로에 추가");
+    ("경로에 추가");
     onUpdateSpot(spotInfo.id, "toAdded");
     onClose(false);
     handleCloseAddModal();
@@ -126,10 +127,23 @@ const DetailedSpot = ({
   };
 
   const handleCompleted = () => {
-    console.log("수거 완료");
+    ("수거 완료");
     onUpdateSpot(spotInfo.id, "toCompleted");
     onClose(false);
     handleCloseCompleteModal();
+  };
+
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 1500);
+    } catch (error) {
+      setCopied(false);
+      throw Error("클립보드 복사 실패", error);
+    }
   };
 
   return (
@@ -177,14 +191,25 @@ const DetailedSpot = ({
         />
       </div>
       <div className="flex w-full items-center gap-2">
-        <label className="inline w-full border border-gray-500 rounded-md my-1 px-2 py-1 text-md">
-          {address ? address : "정확한 주소를 불러올 수 없습니다"}
+        <label
+          className={`inline w-full border border-gray-500 rounded-md my-1 px-2 py-1 text-md ${
+            copied && "font-extrabold text-blue-700"
+          }`}
+        >
+          {copied
+            ? "주소가 복사되었습니다!"
+            : address
+            ? address
+            : "정확한 주소를 불러올 수 없습니다"}
         </label>
         <img
           className="inline cursor-pointer w-8"
           src={Copy}
           onClick={() => {
-            // 클립보드 복사 라이브러리
+            if (!address) {
+              return;
+            }
+            copyToClipboard(address);
           }}
         />
       </div>

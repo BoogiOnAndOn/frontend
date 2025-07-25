@@ -75,7 +75,7 @@ const Login = () => {
         }
         setLoginFailMessage("id 혹은 비밀번호를 다시 확인해주세요");
         setLoginSuccess(false);
-        console.log("Login Error: ", error);
+        "Login Error: ", error;
       }
     } else {
       if (!inputId.trim() && !inputPassword.trim())

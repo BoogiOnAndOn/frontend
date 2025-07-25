@@ -179,10 +179,10 @@ const CleaningMainPage = () => {
     const locData = await fetchLocation();
 
     if (locData.coords) {
-      console.log("좌표 가져오기 성공: ", locData.coords);
+      "좌표 가져오기 성공: ", locData.coords;
       setStartCoords([locData.coords[0], locData.coords[1]]);
     } else if (locData.error) {
-      console.log("좌표 가져오기 오류: ", locData.error);
+      "좌표 가져오기 오류: ", locData.error;
       return;
     }
     setIsCleaning(true);
@@ -194,11 +194,11 @@ const CleaningMainPage = () => {
 
     let endCoord = [];
     if (locData.coords) {
-      console.log("좌표 가져오기 성공: ", locData.coords);
+      "좌표 가져오기 성공: ", locData.coords;
       setEndCoords([locData.coords[0], locData.coords[1]]);
       endCoord = locData.coords;
     } else if (locData.error) {
-      console.log("좌표 가져오기 오류: ", locData.error);
+      "좌표 가져오기 오류: ", locData.error;
       return;
     }
 
@@ -233,11 +233,11 @@ const CleaningMainPage = () => {
       formData.append("weather", "맑음");
       formData.append("members", teamList);
 
-      // console.log("-------after/ inject main at form data---------" + formData);
+      // ("-------after/ inject main at form data---------" + formData);
 
       // 나중에 바꿔야함
       postAdd(formData).then((data) => {
-        console.log("---------result----------: ", data.result);
+        "---------result----------: ", data.result;
         setResult(data.result);
       });
     } catch (error) {

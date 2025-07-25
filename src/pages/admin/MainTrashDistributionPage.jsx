@@ -90,12 +90,12 @@ const MainTrashDistributionPage = () => {
       try {
         const res = await getSearched(searchParam);
         if (res.data && res.data.length > 0) {
-          console.log(res);
+          res;
 
           setSearchedData(res.data);
         }
       } catch (error) {
-        console.log(error);
+        error;
       }
     };
 

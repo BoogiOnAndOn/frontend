@@ -13,7 +13,7 @@ const updateWorkPeriodApi = async (workerId, startDate, endDate) => {
       `${prefix}/member-inquiry/worker/update/${workerId}`,
       { startDate: formattedStartDate, endDate: formattedEndDate } // 객체로 startDate와 endDate를 전송
     );
-    console.log(`---/member-inquiry/worker/update/${workerId} API 응답:`, res);
+    `---/member-inquiry/worker/update/${workerId} API 응답:`, res;
 
     return res.data; // 필요한 데이터만 반환
   } catch (error) {

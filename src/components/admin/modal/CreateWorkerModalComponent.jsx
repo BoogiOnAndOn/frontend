@@ -66,7 +66,7 @@ const CreateWorkerModalComponent = ({ isOpen, onClose, adminDpt }) => {
         endDate
       );
 
-      console.log("등록 완료!");
+      ("등록 완료!");
       onClose("success"); // 모달 닫기
     } catch (error) {
       console.error("회원 등록 중 오류 발생:", error);

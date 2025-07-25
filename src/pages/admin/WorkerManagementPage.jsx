@@ -64,14 +64,14 @@ const WorkerManagementPage = () => {
     setIsCreateWokerBulkModalComponent(false); // 모달 닫기 상태로 변경
   };
 
-  const handleCreateWorkerBulk = (formData) => {
-    console.log("mngmnt page got formData: ");
+  const handleCreateWorkerBulk = async (formData) => {
+    ("mngmnt page got formData: ");
 
     for (let [key, value] of formData.entries()) {
-      console.log("key: ", key, ", value: ", value); // FormData에 파일이 제대로 들어갔는지 확인
+      "key: ", key, ", value: ", value; // FormData에 파일이 제대로 들어갔는지 확인
     }
-    const res = createBulkMember(formData, id, "worker");
-    console.log("create bulk user res: ", res);
+    const res = await createBulkMember(formData, id, "worker");
+    "create bulk user res: ", res;
 
     setIsCreateWokerBulkModalComponent(false);
   };
@@ -105,7 +105,7 @@ const WorkerManagementPage = () => {
   const [checkedRows, setCheckedRows] = useState([]); // 체크된 row 상태 관리
   // 체크된 상태를 업데이트하는 핸들러
   // const handleCheckChange = (checkedRows) => {
-  //   console.log("체크된 회원 ID 목록:", checkedRows); // 여기에 선택된 회원 ID를 출력
+  //   ("체크된 회원 ID 목록:", checkedRows); // 여기에 선택된 회원 ID를 출력
   //   setCheckedRows(checkedRows); // 체크된 상태를 업데이트
   // };
   const [selectedMember, setSelectedMember] = useState(null); // 선택된 회원 정보 상태 관리
@@ -119,7 +119,7 @@ const WorkerManagementPage = () => {
     //   .filter((row) => row.checked === true) // 체크된 행 필터링
     //   .map((row) => row.id); // 회원 ID 추출
     // 삭제할 ID 확인
-    // console.log("삭제할 회원 ID 목록:", idsToDelete);
+    // ("삭제할 회원 ID 목록:", idsToDelete);
 
     try {
       await deleteMemberApi(checkedRows); // API 호출
@@ -170,7 +170,7 @@ const WorkerManagementPage = () => {
 
   // 검색어 상태 및 핸들러
   const handlePageChange = (page) => {
-    console.log("handlePageChange");
+    ("handlePageChange");
     setCurrentPage(page);
     setCheckedRows([]);
     setSearchParam((prev) => ({
@@ -188,7 +188,7 @@ const WorkerManagementPage = () => {
       nameSearch: nameRef.current.getValue(), // 검색어를 name으로 설정
       page: 1,
     }));
-    console.log("------fetch by handleSearch------");
+    ("------fetch by handleSearch------");
 
     fetchMemberList();
   };
@@ -259,7 +259,7 @@ const WorkerManagementPage = () => {
   });
 
   useEffect(() => {
-    console.log("===========checkedRows : ", checkedRows);
+    "===========checkedRows : ", checkedRows;
   }, [checkedRows]);
 
   // 관리자 id 아니면 로그인 페이지로 이동
@@ -273,12 +273,12 @@ const WorkerManagementPage = () => {
 
   // 탭이나 검색어가 변경될 때마다 데이터를 새로 가져옴
   useEffect(() => {
-    console.log("------fetch by useEffect------");
+    ("------fetch by useEffect------");
     fetchMemberList();
   }, [condition, currentPage]);
 
   useEffect(() => {
-    console.log("--------------------", searchedData);
+    "--------------------", searchedData;
   }, [searchedData]);
 
   return (

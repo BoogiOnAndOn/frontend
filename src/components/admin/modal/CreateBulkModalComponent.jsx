@@ -13,7 +13,7 @@ const CreateBulkModalComponent = ({
   const [error, setError] = useState("");
 
   const handleFileSelect = (file) => {
-    console.log("modal got file: ", file);
+    "modal got file: ", file;
 
     setSelectedFile(file);
   };
@@ -24,7 +24,7 @@ const CreateBulkModalComponent = ({
       formData.append("exel", selectedFile);
 
       for (let [key, value] of formData.entries()) {
-        console.log("key: ", key, ", value: ", value); // FormData에 파일이 제대로 들어갔는지 확인
+        "key: ", key, ", value: ", value; // FormData에 파일이 제대로 들어갔는지 확인
       }
       // 부모 컴포넌트로 FormData 전달
       onConfirm(formData);

@@ -57,13 +57,13 @@ const MemberManagementPage = () => {
   };
 
   const handleCreateAdminBulk = (formData) => {
-    console.log("mngmnt page got formData: ");
+    ("mngmnt page got formData: ");
 
     for (let [key, value] of formData.entries()) {
-      console.log("key: ", key, ", value: ", value); // FormData에 파일이 제대로 들어갔는지 확인
+      "key: ", key, ", value: ", value; // FormData에 파일이 제대로 들어갔는지 확인
     }
     const res = createBulkMember(formData, id, "admin");
-    console.log("create bulk admin res: ", res);
+    "create bulk admin res: ", res;
 
     setIsCreateAdminBulkModalComponent(false);
   };
@@ -78,7 +78,7 @@ const MemberManagementPage = () => {
       const adminId = member.id; // 여기서 member의 id를 workerId로 사용
       const response = await getAdminDetail(adminId);
 
-      console.log("Fetched Admin Details:", response); // API에서 데이터를 잘 받아오는지 확인
+      "Fetched Admin Details:", response; // API에서 데이터를 잘 받아오는지 확인
 
       // API에서 가져온 회원 상세 정보를 selectedMember에 설정
       setSelectedMember(response); // response는 getWorkerDetail에서 받은 데이터
@@ -96,7 +96,7 @@ const MemberManagementPage = () => {
   const [checkedRows, setCheckedRows] = useState([]); // 체크된 row 상태 관리
   // 체크된 상태를 업데이트하는 핸들러
   // const handleCheckChange = (checkedRows) => {
-  //   console.log("체크된 회원 ID 목록:", checkedRows); // 여기에 선택된 회원 ID를 출력
+  //   ("체크된 회원 ID 목록:", checkedRows); // 여기에 선택된 회원 ID를 출력
   //   setCheckedRows(checkedRows); // 체크된 상태를 업데이트
   // };
   const [selectedMember, setSelectedMember] = useState(null); // 선택된 회원 정보 상태 관리
@@ -110,8 +110,8 @@ const MemberManagementPage = () => {
   //   //   .filter((checked) => checked) // 체크된 행 필터링
   //   //   .map((row) => row.id); // 회원 ID 추출
   //   // // 삭제할 ID 확인
-  //   // console.log("삭제할 회원 ID 목록:", idsToDelete);
-  //   // console.log(
+  //   // ("삭제할 회원 ID 목록:", idsToDelete);
+  //   // (
   //   //   "삭제할 회원 ID 목록:",
   //   //   checkedRows
   //   //     .filter((checked) => checked) // 체크된 행 필터링
@@ -219,7 +219,7 @@ const MemberManagementPage = () => {
       nameSearch: nameRef.current.getValue(),
       page: 1,
     }));
-    console.log("------fetch by handleSearch------");
+    ("------fetch by handleSearch------");
 
     fetchMemberList();
   };
@@ -245,7 +245,7 @@ const MemberManagementPage = () => {
       const tabCondition = "관리자";
 
       // API 호출 전에 로그 찍기
-      console.log("로그 Fetching member list with tabCondition:", tabCondition);
+      "로그 Fetching member list with tabCondition:", tabCondition;
 
       const response = await getMemberList(
         {
@@ -258,7 +258,7 @@ const MemberManagementPage = () => {
       );
 
       // API 응답 데이터 로그 찍기
-      console.log("로그 Fetched member list response:", response.data);
+      "로그 Fetched member list response:", response.data;
 
       setCheckedRows([]);
       setRows(response.data.dtoList);
@@ -286,12 +286,12 @@ const MemberManagementPage = () => {
 
   // 탭이나 검색어가 변경될 때마다 데이터를 새로 가져옴
   useEffect(() => {
-    console.log("------fetch by useEffect------");
+    ("------fetch by useEffect------");
     fetchMemberList();
   }, [searchParam]);
 
   useEffect(() => {
-    console.log("--------------------", searchedData);
+    "--------------------", searchedData;
   }, [searchedData]);
 
   return (
